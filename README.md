@@ -1,2 +1,2 @@
 # Python_Tasks
-В данном репозитории содержится опыт решения учебных задач на ЯП Python
+This repository contains experience in solving learning tasks in Python
