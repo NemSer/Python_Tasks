@@ -1,1 +1,1 @@
-Опыт решения задач из хэндбука по Python от Яндекс.
+Experience in solving tasks from a Python handbook from Yandex
