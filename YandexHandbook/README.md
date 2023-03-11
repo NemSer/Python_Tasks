@@ -1,1 +1,2 @@
-# Experience in solving tasks from a Python handbook from Yandex
+# YandexHandbook
+Experience in solving problems from a Python handbook from Yandex
