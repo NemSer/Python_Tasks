@@ -1,1 +1,105 @@
+# A
 
+# def make_list(length: int, value=0):
+#     result = [value] * length
+#     return result
+
+# B
+
+# def make_matrix(size, value=0):
+#     if isinstance(size, tuple):
+#         result = [[value for _ in range(size[0])] for _ in range(size[1])]
+#     else:
+#         result = [[value for _ in range(size)] for _ in range(size)]
+#     return result
+
+# C
+
+# def gcd(*args):
+#     i = 0
+#     answer = args[i]
+#     i += 1
+#     while i < len(args):
+#         b = args[i]
+#         while answer % b != 0:
+#             copy_answer = answer
+#             answer = b
+#             b = copy_answer % b
+#         answer = b
+#         i += 1
+#     return answer
+
+# D
+
+# def month(number: int, language="ru"):
+#     month_en = {1: 'January',
+#                 2: 'February',
+#                 3: 'March',
+#                 4: 'April',
+#                 5: 'May',
+#                 6: 'June',
+#                 7: 'July',
+#                 8: 'August',
+#                 9: 'September',
+#                 10: 'October',
+#                 11: 'November',
+#                 12: 'December'}
+#     month_ru = {1: 'Январь',
+#                 2: 'Февраль',
+#                 3: 'Март',
+#                 4: 'Апрель',
+#                 5: 'Май',
+#                 6: 'Июнь',
+#                 7: 'Июль',
+#                 8: 'Август',
+#                 9: 'Сентябрь',
+#                 10: 'Октябрь',
+#                 11: 'Ноябрь',
+#                 12: 'Декабрь'}
+#     if language == "ru":
+#         return month_ru[number]
+#     else:
+#         return month_en[number]
+
+# E
+
+# def to_string(*data, sep=' ', end='\n'):
+#     preparation = map(lambda x: str(x), data)
+#     result = sep.join(preparation) + end
+#     return result
+
+# F
+
+# in_stock = {"coffee": 4, "milk": 4, "cream": 0}
+#
+#
+# def order(*args):
+#     menu = {"Эспрессо": [1, 0, 0],
+#             "Капучино": [1, 3, 0],
+#             "Макиато": [2, 1, 0],
+#             "Кофе по-венски": [1, 0, 2],
+#             "Латте Макиато": [1, 2, 1],
+#             "Кон Панна": [1, 0, 1]}
+#     for element in args:
+#         if in_stock["coffee"] - \
+#                 menu[element][0] >= 0 and in_stock["milk"] - \
+#                 menu[element][1] >= 0 and in_stock["cream"] - \
+#                 menu[element][2] >= 0:
+#             in_stock["coffee"] -= menu[element][0]
+#             in_stock["milk"] -= menu[element][1]
+#             in_stock["cream"] -= menu[element][2]
+#             return element
+#     return "К сожалению, не можем предложить Вам напиток"
+
+
+# J
+
+
+# def secret_replace(text: str, **kwargs):
+#     result = []
+#     for index, element in enumerate(text):
+#         if element in kwargs:
+#             result.append(kwargs[element][(text[:index + 1].count(element) - 1) % len(kwargs[element])])
+#         else:
+#             result.append(element)
+#     return ''.join(result)
