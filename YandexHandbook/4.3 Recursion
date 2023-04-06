@@ -1,0 +1,131 @@
+# A
+
+# def recursive_sum(*args):
+#     if len(args) == 1:
+#         return args[-1]
+#     return args[-1] + recursive_sum(*args[:len(args) - 1])
+
+
+# B
+
+# def recursive_digit_sum(number: int):
+#     if len(str(number)) == 1:
+#         return number
+#     return int(str(number)[-1]) + recursive_digit_sum(number // 10)
+
+
+# C
+
+# def make_equation(*args):
+#     if len(args) == 1:
+#         return args[0]
+#     return f'({make_equation(*args[:len(args) - 1])}) * x + {args[-1]}'
+
+
+# D
+
+# def answer(func):
+#     def wrapper(*args, **kwargs):
+#         result = f"Результат функции: {func(*args, **kwargs)}"
+#         return result
+#     return wrapper
+#
+#
+
+
+# E
+
+# def result_accumulator(func):
+#     data = []
+#
+#     def wrapper(*args, method='accumulate'):
+#         if method == 'accumulate':
+#             data.append(func(*args))
+#         else:
+#             data.append(func(*args))
+#             result = data.copy()
+#             data.clear()
+#             return result
+#
+#     return wrapper
+#
+#
+# @result_accumulator
+# def a_plus_b(a, b):
+#     return a + b
+
+
+# F
+
+# def merge(list1: list, list2: list):
+#     result_list = []
+#     i, j, = 0, 0
+#     while i < len(list1) and j < len(list2):
+#         if list1[i] < list2[j]:
+#             result_list.append(list1[i])
+#             i += 1
+#         elif list1[i] > list2[j]:
+#             result_list.append(list2[j])
+#             j += 1
+#         else:
+#             result_list.extend([list1[i], list2[j]])
+#             i += 1
+#             j += 1
+#     if i == len(list1):
+#         result_list.extend(list2[j:])
+#     elif j == len(list2):
+#         result_list.extend(list1[i:])
+#     return result_list
+#
+#
+# def merge_sort(obj: list):
+#     if len(obj) == 1:
+#         return obj
+#     left = merge_sort(obj[:len(obj) // 2])
+#     right = merge_sort(obj[len(obj) // 2:])
+#     return merge(left, right)
+
+
+# G
+
+# def same_type(func):
+#     def wrapper(*args):
+#         type_elements = type(args[0])
+#         for element in args:
+#             if type(element) != type_elements:
+#                 return 'Обнаружены различные типы данных\nFail'
+#         return func(*args)
+#     return wrapper
+#
+#
+# @same_type
+# def combine_text(*words):
+#     return ' '.join(words)
+
+
+# H
+
+# def fibonacci(n):
+#     f_1, f = 0, 1
+#     for i in range(n):
+#         yield f_1
+#         f_1, f = f, f_1 + f
+
+
+# I
+
+# def cycle(data: list):
+#     i = 0
+#     while True:
+#         yield data[i % len(data)]
+#         i += 1
+
+
+# J
+
+# def make_linear(data: list):
+#     if len(data) == 0:
+#         return data
+#     if isinstance(data[0], list):
+#         return make_linear(data[0]) + make_linear(data[1:])
+#     return [data[0]] + make_linear(data[1:])
