@@ -1,0 +1,176 @@
+# A
+
+# class Point:
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+
+
+# B
+
+# class Point:
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def move(self, a, b):
+#         self.x += a
+#         self.y += b
+#
+#     def length(self, name):
+#         return round(((name.x - self.x) ** 2 + (name.y - self.y) ** 2) ** 0.5, 2)
+
+
+# C
+
+# class RedButton:
+#
+#     def __init__(self, status='Тревога!', i=0):
+#         self.status = status
+#         self.i = i
+#
+#     def click(self):
+#         self.i += 1
+#         print(self.status)
+#
+#     def count(self):
+#         return self.i
+
+
+# D
+
+# class Programmer:
+#
+#     def __init__(self, name, label, time=0):
+#         self.name = name
+#         self.label = label
+#         self.time = time
+#         self.cash = 0
+#         self.hours = 0
+#
+#     def work(self, hours):
+#         self.hours = hours
+#         self.time += hours
+#
+#     def rise(self):
+#         if self.label == 'Junior':
+#             self.label = 'Middle'
+#         elif self.label == 'Middle':
+#             self.label = 'Senior'
+#         else:
+#             self.label += '*'
+#
+#     def info(self):
+#         if self.label == 'Junior':
+#             self.cash += self.hours * 10
+#             return f'{self.name} {self.time}ч. {self.cash}тгр.'
+#         elif self.label == 'Middle':
+#             self.cash += self.hours * 15
+#             return f'{self.name} {self.time}ч. {self.cash}тгр.'
+#         else:
+#             self.cash += self.hours * (20 + self.label.count("*"))
+#             return f'{self.name} {self.time}ч. {self.cash}тгр.'
+
+
+# E
+
+# class Rectangle:
+#
+#     def __init__(self, pair1, pair2):
+#         self.x1 = pair1[0]
+#         self.x2 = pair2[0]
+#         self.y1 = pair1[1]
+#         self.y2 = pair2[1]
+#
+#     def perimeter(self):
+#         return round(abs(self.x1 - self.x2) * 2 + abs(self.y1 - self.y2) * 2, 2)
+#
+#     def area(self):
+#         return round(abs(self.x1 - self.x2) * abs(self.y1 - self.y2), 2)
+
+
+# F
+
+# class Rectangle:
+#
+#     def __init__(self, pair1, pair2):
+#         self.x1 = pair1[0]
+#         self.x2 = pair2[0]
+#         self.y1 = pair1[1]
+#         self.y2 = pair2[1]
+#
+#     def perimeter(self):
+#         return round(abs(self.x1 - self.x2) * 2 + abs(self.y1 - self.y2) * 2, 2)
+#
+#     def area(self):
+#         return round(abs(self.x1 - self.x2) * abs(self.y1 - self.y2), 2)
+#
+#     def get_pos(self):
+#         return round(min(self.x1, self.x2), 2), round(max(self.y1, self.y2), 2)
+#
+#     def get_size(self):
+#         return round(abs(self.x1 - self.x2), 2), round(abs(self.y1 - self.y2), 2)
+#
+#     def move(self, dx, dy):
+#         self.x1 += dx
+#         self.x2 += dx
+#         self.y1 += dy
+#         self.y2 += dy
+#
+#     def resize(self, width, height):
+#         if self.x1 == min(self.x1, self.x2) and self.y1 == max(self.y1, self.y2):
+#             self.x2 = self.x1 + width
+#             self.y2 = self.y1 - height
+#         elif self.x2 == min(self.x1, self.x2) and self.y2 == max(self.y1, self.y2):
+#             self.x1 = self.x2 + width
+#             self.y1 = self.y2 - height
+#         else:
+#             if self.x1 < self.x2:
+#                 self.y1 = max(self.y1, self.y2) - height
+#                 self.x2 = min(self.x1, self.x2) + width
+#             else:
+#                 self.y2 = max(self.y1, self.y2) - height
+#                 self.x1 = min(self.x1, self.x2) + width
+
+
+# I
+
+# class Queue:
+#
+#     def __init__(self):
+#         self.memory = []
+#
+#     def push(self, item):
+#         self.memory.append(item)
+#
+#     def pop(self):
+#         data = self.memory[0]
+#         self.memory = self.memory[1:]
+#         return data
+#
+#     def is_empty(self):
+#         return not bool(len(self.memory))
+
+
+# J
+
+# class Stack:
+#
+#     def __init__(self):
+#         self.memory = []
+#
+#     def push(self, item):
+#         self.memory.append(item)
+#
+#     def pop(self):
+#         data = self.memory[-1]
+#         self.memory = self.memory[0:len(self.memory) - 1]
+#         return data
+#
+#     def is_empty(self):
+#         return not bool(len(self.memory))
+
+
+
