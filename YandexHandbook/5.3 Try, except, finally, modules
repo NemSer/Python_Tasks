@@ -1,0 +1,228 @@
+# A
+
+# def func():
+#     x = '2' + 2
+#
+#
+# try:
+#     func()
+# except ValueError:
+#     print('ValueError')
+# except TypeError:
+#     print('TypeError')
+# except SystemError:
+#     print('SystemError')
+# else:
+#     print('No Exceptions')
+
+
+# C
+
+# def func(a, b, c):
+#     return ''.join(map(str, (a, b, c)))
+#
+#
+# class A:
+#
+#     def __str__(self):
+#         raise Exception
+#
+#
+# class B:
+#
+#     def __repr__(self):
+#         raise Exception
+#
+#
+# class C:
+#
+#     def __str__(self):
+#         return f'C()'
+
+
+# D
+
+# def only_positive_even_sum(a, b):
+#     if not isinstance(a, int) or not isinstance(b, int):
+#         raise TypeError
+#     elif a <= 0 or a % 2 != 0 or b <= 0 or b % 2 != 0:
+#         raise ValueError
+#     else:
+#         return a + b
+#
+#
+# print(only_positive_even_sum('-5', '4'))
+
+
+# E
+
+# def merge(cortej1: tuple, cortej2: tuple):
+#     try:
+#         iter(cortej1)
+#     except TypeError:
+#         raise StopIteration
+#     else:
+#         try:
+#             iter(cortej2)
+#         except TypeError:
+#             raise StopIteration
+#         else:
+#             type1 = type(cortej1[0])
+#             type2 = type(cortej2[0])
+#             result1 = list(map(lambda x: type1 == type(x), cortej1))
+#             result2 = list(map(lambda x: type2 == type(x), cortej2))
+#             if not all(result1) or not all(result2):
+#                 raise TypeError
+#             if type1 != type2:
+#                 raise TypeError
+#             if list(cortej1) != sorted(cortej1) or list(cortej2) != sorted(cortej2):
+#                 raise ValueError
+#             i, j = 0, 0
+#             c = []
+#             while i != len(cortej1) and j != len(cortej2):
+#                 if cortej1[i] > cortej2[j]:
+#                     c.append(cortej2[j])
+#                     j += 1
+#                 elif cortej1[i] < cortej2[j]:
+#                     c.append(cortej1[i])
+#                     i += 1
+#                 else:
+#                     c.extend([cortej1[i], cortej2[j]])
+#                     i += 1
+#                     j += 1
+#             if i == len(cortej1):
+#                 c.extend(cortej2[j::])
+#             elif j == len(cortej2):
+#                 c.extend(cortej1[i::])
+#             return c
+
+
+# G
+
+# class Error(Exception):
+#     pass
+#
+#
+# class CyrillicError(Error):
+#     pass
+#
+#
+# class CapitalError(Error):
+#     pass
+#
+#
+# def cyrillicerror(name):
+#     for element in name:
+#         if element.lower() not in 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя':
+#             return False
+#     return True
+#
+#
+# def capitalerror(name):
+#     if name.lower().capitalize() != name:
+#         return False
+#     return True
+#
+#
+# def name_validation(name):
+#     if not isinstance(name, str):
+#         raise TypeError
+#     if not cyrillicerror(name):
+#         raise CyrillicError
+#     if not capitalerror(name):
+#         raise CapitalError
+#     return name
+
+
+# H
+
+# class Error(Exception):
+#     pass
+#
+#
+# class BadCharacterError(Error):
+#     pass
+#
+#
+# class StartsWithDigitError(Error):
+#     pass
+#
+#
+# def badcharacterError(name):
+#     for element in name:
+#         if element.lower() not in 'qwertyuiopasdfghjklzxcvbnm1234567890_':
+#             return False
+#     return True
+#
+#
+# def startswithdigiterror(name):
+#     if name[0] in '12234567890':
+#         return False
+#     return True
+#
+#
+# def username_validation(name):
+#     if not isinstance(name, str):
+#         raise TypeError
+#     if not badcharacterError(name):
+#         raise BadCharacterError
+#     if not startswithdigiterror(name):
+#         raise StartsWithDigitError
+#     return name
+
+
+# I
+
+# def user_validation(**kwargs):
+#     result1 = list(map(lambda x: x in ['last_name', 'first_name', 'username'], kwargs.keys()))
+#     result2 = list(map(lambda x: isinstance(x, str), kwargs.values()))
+#     if not all(result1) or len(result1) < 3:
+#         raise KeyError
+#     if not all(result2):
+#         raise TypeError
+#     name_validation(kwargs['last_name'])
+#     name_validation(kwargs['first_name'])
+#     username_validation(kwargs['username'])
+#     return kwargs
+
+
+# J
+
+# import hashlib as h
+#
+#
+# class Error(Exception):
+#     pass
+#
+#
+# class MinLengthError(Error):
+#     pass
+#
+#
+# class PossibleCharError(Error):
+#     pass
+#
+#
+# class NeedCharError(Error):
+#     pass
+#
+#
+# def password_validation(password: str,
+#                         min_length=8,
+#                         possible_chars=''.join([chr(x) for x in range(65, 91)])
+#                         + ''.join([chr(x) for x in range(97, 123)])
+#                         + '1234567890',
+#                         at_least_one=str.isdigit):
+#     if not isinstance(password, str):
+#         raise TypeError
+#     if len(password) < min_length:
+#         raise MinLengthError
+#     check = list(map(lambda x: x in possible_chars, password))
+#     if not all(check):
+#         raise PossibleCharError
+#     if not any(check):
+#         raise NeedCharError
+#     check = list(map(at_least_one, password))
+#     if not any(check):
+#         raise NeedCharError
+#     return h.sha256(password.encode('UTF-8')).hexdigest()
