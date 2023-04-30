@@ -1,0 +1,136 @@
+# A
+
+# import math as m
+#
+#
+# def expression(x: float):
+#     return m.log(m.pow(x, 3 / 16), 32) + m.pow(x, m.cos((m.pi * x) / (2 * m.e))) - m.pow(m.sin(x / m.pi), 2)
+#
+#
+# print(expression(float(input())))
+
+
+# B
+
+# import math
+# from sys import stdin
+#
+# data = stdin.readlines()
+# for line in data:
+#     print(math.gcd(*[int(x) for x in line.rstrip('\n').split()]))
+
+
+# C
+
+# import math
+#
+# n, m = map(int, input().split())
+# if m <= n:
+#     result1 = math.comb(n - 1, m - 1)
+#     result2 = math.comb(n, m)
+# else:
+#     result1 = math.comb(m - 1, n - 1)
+#     result2 = math.comb(m, n)
+# print(result1, result2)
+
+
+# D
+
+# data = list(map(float, input().split()))
+# start = 1
+# for element in data:
+#     start *= element
+# print(start ** (1 / len(data)))
+
+
+# E
+
+# import math
+#
+# x1, y1 = map(float, input().split())
+# r, phi = map(float, input().split())
+# x2, y2 = r * math.cos(phi), r * math.sin(phi)
+# print(math.dist((x1, y1), (x2, y2)))
+
+
+# F
+
+# import numpy as np
+#
+#
+# def multiplication_matrix(n: int):
+#     data = []
+#     for i in range(1, n + 1):
+#         data.append([x * i for x in range(1, n + 1)])
+#     return np.array(data)
+
+
+# G
+
+# import numpy as np
+#
+#
+# def make_board(n: int):
+#     matrix = np.zeros((n, n), dtype='int8')
+#     for i in range(1, n + 1):
+#         if i % 2 != 0:
+#             for j in range(1, n + 1):
+#                 if j % 2 != 0:
+#                     matrix[i - 1][j - 1] = 1
+#         else:
+#             for j in range(1, n + 1):
+#                 if j % 2 == 0:
+#                     matrix[i - 1][j - 1] = 1
+#     return matrix
+
+
+# H
+
+
+# import numpy as np
+#
+#
+# def snake(m: int, n: int, direction='H'):
+#     array = []
+#     if direction == 'H':
+#         start = 1
+#         end = m + 1
+#         for i in range(1, n + 1):
+#             if i % 2 != 0:
+#                 array.append([x for x in range(start, end)])
+#                 start += m - 1
+#                 end += m - 1
+#             else:
+#                 array.append([x for x in range(end, start, -1)])
+#                 start += m + 1
+#                 end += m + 1
+#     else:
+#         for i in range(n):
+#             array.append([0 for j in range(m)])
+#         start = 1
+#         for i in range(1, m + 1):
+#             if i % 2 != 0:
+#                 for j in range(n):
+#                     array[j][i - 1] = start
+#                     start += 1
+#                 start += n - 1
+#             else:
+#                 for j in range(n):
+#                     array[j][i - 1] = start
+#                     start -= 1
+#                 start += n + 1
+#     return np.array(array, dtype='int16')
+
+
+# J
+
+# import numpy as np
+# 
+# 
+# def stairs(vector: np.array):
+#     data = [list(vector)]
+#     for i in range(len(vector) - 1):
+#         element = [vector[i - 1] for i in range(len(vector))]
+#         vector = element
+#         data.append(element)
+#     return np.array(data)
