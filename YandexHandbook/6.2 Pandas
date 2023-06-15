@@ -1,0 +1,211 @@
+# A
+
+
+# import pandas as pd
+
+
+# def length_stats(text: str):
+#     text = text.lower().split()
+#     for i in range(len(text)):
+#         if not text[i].isalpha():
+#             new_line = ''
+#             for element in text[i]:
+#                 if element.isalpha():
+#                     new_line += element
+#             text[i] = new_line
+#     new_text = []
+#     for element in text:
+#         if element != '':
+#             new_text.append(element)
+#     data = dict()
+#     for element in sorted(new_text):
+#         data[element] = len(element)
+#     return pd.Series(data)
+
+
+# B
+
+
+# import pandas as pd
+#
+#
+# def length_stats(text: str):
+#     text = text.lower().split()
+#     for i in range(len(text)):
+#         if not text[i].isalpha():
+#             new_line = ''
+#             for element in text[i]:
+#                 if element.isalpha():
+#                     new_line += element
+#             text[i] = new_line
+#     new_text1 = []
+#     new_text2 = []
+#     for element in text:
+#         if element != '' and len(element) % 2 != 0:
+#             new_text1.append(element)
+#         elif element != '' and len(element) % 2 == 0:
+#             new_text2.append(element)
+#     data1 = dict()
+#     for element in sorted(new_text1):
+#         data1[element] = len(element)
+#     data2 = dict()
+#     for element in sorted(new_text2):
+#         data2[element] = len(element)
+#     return pd.Series(data1, dtype='int64'), pd.Series(data2, dtype='int64')
+
+
+# C
+
+
+# import pandas as pd
+#
+#
+# def cheque(price_list: pd.Series, **kwargs):
+#     data = dict()
+#     i = 0
+#     for element in price_list.index:
+#         data[element] = price_list.values[i]
+#         i += 1
+#     new_data = dict()
+#     new_data['product'] = list(kwargs.keys())
+#     new_data['price'] = [data[x] for x in new_data['product']]
+#     new_data['number'] = [kwargs[x] for x in new_data['product']]
+#     new_data['cost'] = [x[0] * x[1] for x in zip(new_data['price'], new_data['number'])]
+#     result = pd.DataFrame(new_data).sort_values(['product'])
+#     result.index = list(range(len(new_data['product'])))
+#     return result
+
+
+# s = pd.Series(np.arange(5), index=["a", "b", "c", "d", "e"])
+# print("Выбор одного элемента")
+# print(s["a"])
+# print("Выбор нескольких элементов")
+# print(s[["a", "d"]])
+# print("Срез")
+# print(s[1:])
+# print("Поэлементное сложение")
+# print(s + s)
+
+# import numpy as np
+# import pandas as pd
+#
+# students = pd.read_csv('/Users/sergeynemenov/Downloads/Students_Performance_132b1e1ff9.csv')
+# print(type(students))
+# print(students.index)
+# print(students.columns)
+# print(students[students['test preparation course'] == 'completed']['math score'])
+
+
+# D
+
+
+# import numpy as np
+# import pandas as pd
+#
+#
+# def cheque(price_list: pd.Series, **kwargs):
+#     data = dict()
+#     i = 0
+#     for element in price_list.index:
+#         data[element] = price_list.values[i]
+#         i += 1
+#     new_data = dict()
+#     new_data['product'] = list(kwargs.keys())
+#     new_data['price'] = [data[x] for x in new_data['product']]
+#     new_data['number'] = [kwargs[x] for x in new_data['product']]
+#     new_data['cost'] = [x[0] * x[1] for x in zip(new_data['price'], new_data['number'])]
+#     result = pd.DataFrame(new_data).sort_values(['product'])
+#     result.index = list(range(len(new_data['product'])))
+#     return result
+#
+#
+# def discount(object: pd.DataFrame):
+#     new_result = object.copy()
+#     new_result['cost'] = np.where(new_result['number'] > 2, new_result['cost'] * 0.5, new_result['cost'])
+#     return new_result
+
+
+# E
+
+
+# import numpy as np
+# import pandas as pd
+#
+#
+# def get_long(data: pd.Series, min_length=5):
+#     return data[data >= min_length]
+#
+#
+# data = pd.Series([3, 5, 6, 6], ['мир', 'питон', 'привет', 'яндекс'])
+# filtered = get_long(data, min_length=6)
+# print(data)
+# print(filtered)
+
+
+# F
+
+
+# import pandas as pd
+#
+#
+# def best(dat: pd.DataFrame):
+#     return dat[(dat['maths'] >= 4) & (dat['physics'] >= 4) & (dat['computer science'] >= 4)]
+
+
+# G
+
+
+# import pandas as pd
+#
+#
+# def need_to_work_better(data: pd.DataFrame):
+#     return data[(data['maths'] == 2) | (data['physics'] == 2) | (data['computer science'] == 2)]
+
+
+# H
+
+
+# import pandas as pd
+#
+#
+# def update(data: pd.DataFrame):
+#     new_data = data.assign(average=lambda x: (x['maths'] + x['physics'] + x['computer science']) / 3)
+#     return new_data.sort_values(['average', 'name'], ascending=[False, True])
+
+
+# I
+
+
+# import pandas as pd
+#
+#
+# data = pd.read_csv('/Users/sergeynemenov/Downloads/data171_4fcbd1f963.csv')
+#
+# x_left, y_left = list(map(int, input().split()))
+# x_right, y_right = list(map(int, input().split()))
+#
+# print(data[(x_left <= data['x']) & (data['x'] <= x_right) & (y_right <= data['y']) & (data['y'] <= y_left)])
+
+
+# J
+
+
+# import pandas as pd
+# import numpy as np
+#
+#
+# def values(func, start, end, step):
+#     index = np.arange(start, end + step, step)
+#     data = []
+#     for i in index:
+#         data.append(func(i))
+#     return pd.Series(data, index=index)
+#
+#
+# def min_extremum(data: pd.Series):
+#     return data.index[data == min(data)].tolist()[0]
+#
+#
+# def max_extremum(data: pd.Series):
+#     return data.index[data == max(data)].tolist()[0]
+
